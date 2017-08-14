@@ -15,6 +15,7 @@ Step 2: **Connect the device to Intel**
 ---------------------------------------
 (a) COnnect to the power source as shown in the picture
 (b) Connect to the Intel Edison device with the ip address assigned to it. Refer relevant documents on how to connect to Edison.
+![20170814_171935](https://user-images.githubusercontent.com/7920214/29274115-496b350a-8124-11e7-9e6b-f418c646ebb0.jpg)
 
 Step 3: Setup Edison environment for USB driver installation
 ------------------------------------------------------------
