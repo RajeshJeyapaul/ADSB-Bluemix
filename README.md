@@ -1,20 +1,23 @@
 #Rajesh K Jeyapaul, jrkumar@in.ibm.com
 
+##
 Intel Edison and Bluemix Powered Air Traffic Ground station
-
+===========================================================
 Note: Most of the work around this done using RasperryPi. When I tried with Intel Edison,faced some challneges.Documenting
 the same for a quick integration with Intel Edison and IBM Bluemix.
-
-Step 1: Understand the Hardware Device
+> ##
+Step 1: **Understand the Hardware Device**
+-----------------------------------------
 
 Device specification: NooElec - RB20T2 SDR & DVB-T (NESDR Mini 2)
 
-Step 2: Connect the device to Intel
-
+Step 2: **Connect the device to Intel**
+---------------------------------------
 (a) COnnect to the power source as shown in the picture
 (b) Connect to the Intel Edison device with the ip address assigned to it. Refer relevant documents on how to connect to Edison.
 
 Step 3: Setup Edison environment for USB driver installation
+------------------------------------------------------------
 
 "opkg" can be used to install the required filesets in Edison. The base feed for the same should be updated
 (a) Update /etc/opkg/base-feeds.conf contents with below URL details:
@@ -24,7 +27,8 @@ src/gz core2-32 http://repo.opkg.net/edison/repo/core2-32
 (b)opkg update
 (c) opkg install libusb-1.0-dev
 
-step 4: Build and Install RTL-SDR Driver @ Edison
+step 4: - Build and Install RTL-SDR Driver @ Edison
+---------------------------------------------------
 
 cd ~
 $ git clone git://git.osmocom.org/rtl-sdr.git
@@ -34,14 +38,18 @@ $ make
 $ sudo make install
 $ sudo ldconfig
 
-Step 5: Build Dump1090 server , which is configured to receive the ADS-B raw message packets
+Step 5: Build Dump1090 server 
+-----------------------------
+( configured to receive the ADS-B raw message packets )
 cd ~
 $ git clone https://github.com/MalcolmRobb/dump1090
 $ cd ~/dump1090
 $ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
 $ make
  
-step 6: Run the Dump server (Ensure that the SDR device is connected with Edison and  Powered ON )
+step 6: Run the Dump server 
+---------------------------
+(Ensure that the SDR device is connected with Edison and  Powered ON )
 cd ~/dump1090
 $ ./dump1090 --raw --net
 
